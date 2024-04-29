@@ -16,7 +16,7 @@ function authorize(role, options = {}) {
         if (token) {
             const claims = jwt.verify(token, secret)
             if (claims[rolePropertyName] && claims[rolePropertyName] === role) {
-                req.user.claims = claims;
+                req.userClaims = claims;
                 return next();
             }
         }
